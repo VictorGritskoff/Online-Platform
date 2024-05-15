@@ -20,7 +20,7 @@ public class CourseController {
     @GetMapping("/courses")
     public String getCourses(Model model) {
 
-        // Получаем список курсов с преподавателями
+        
         List<Course> courseList = courseService.getCoursesWithTeachers();
 
         // Преобразуем список курсов в список DTO
@@ -34,10 +34,10 @@ public class CourseController {
                         course.getTeacher().getSurname()))
                 .collect(Collectors.toList());
 
-        // Передаем список курсов с преподавателями в модель
+        
         model.addAttribute("coursesWithTeachers", coursesWithTeachers);
 
-        // Возвращаем имя представления
+        
         return "course";
     }
 }

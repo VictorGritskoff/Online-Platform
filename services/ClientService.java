@@ -4,13 +4,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClientService {
-  // Метод для получения клиента по ID
+
     public Client getClientById(int id) {
         Optional<Client> client = clients.stream().filter(c -> c.getId() == id).findFirst();
         return client.orElse(null);
     }
 
-    // Метод для поиска клиентов по имени
+
     public List<Client> searchClientsByName(String name) {
         if (name == null || name.isEmpty()) {
             return new ArrayList<>();
@@ -24,12 +24,12 @@ public class ClientService {
         return result;
     }
 
-    // Метод для добавления нового клиента
+  
     public void addClient(Client client) {
         clients.add(client);
     }
 
-    // Метод для обновления существующего клиента
+   
     public void updateClient(int id, Client updatedClient) {
         for (int i = 0; i < clients.size(); i++) {
             Client client = clients.get(i);
@@ -40,7 +40,6 @@ public class ClientService {
         }
     }
 
-    // Метод для удаления клиента
     public void deleteClient(int id) {
         clients.removeIf(client -> client.getId() == id);
     }
